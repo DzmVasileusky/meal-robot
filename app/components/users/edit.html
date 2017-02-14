@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<form name="userForm" ng-submit="userForm.$valid && save(user)" novalidate ng-model-options="{ debounce: 500 }">
+  <div class="form-group">
+      <label for="name" class="form-label">Name</label>
+      <input name="name" type="text" class="text-input" placeholder="Your name" required ng-model="user.name">
+      <div class="error" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched || userForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="surname" class="form-label">Surname</label>
+      <input name="surname" type="text" class="text-input" placeholder="Your surname" ng-model="user.surname">
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input name="email" type="email" class="text-input" placeholder="Your email" required ng-model="user.email">
+      <div class="error" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched || userForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input name="password" type="password" class="text-input" placeholder="Your password" required password ng-model="user.password">
+      <div class="form-text" ng-hide="userForm.password.$touched || userForm.$submitted">Please be sure to use at least 8 characters including lowercase and uppercase letters, a number and a special character</div>
+      <div class="error" ng-messages="userForm.password.$error" ng-if="userForm.password.$touched || userForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bio" class="form-label">About</label>
+      <textarea name="bio" rows="6" class="text-input" placeholder="About yourself" ng-model="user.bio"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="checkbox"><input name="agree" type="checkbox" required ng-model="agree"><span>I accept <a href="" target="_blank">the Terms and Conditions</a></span></label>
+      <div class="error" ng-messages="{ agreement: userForm.agree.$invalid }" ng-if="userForm.agree.$touched || userForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <input type="submit" class="button" value="{{ isSubmitting ? 'Saving' : 'Save' }}" ng-disabled="isSubmitting">
+    </div>
+  </div>
+</form>

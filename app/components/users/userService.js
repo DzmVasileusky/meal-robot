@@ -1,3 +1,3 @@
 angular.module('MealRobot').factory('User', function($resource) {
-  return $resource('/users/:id');
+  return $resource('/users/:id', {'id': '@id'});
 });

@@ -1,0 +1,28 @@
+/*********************************************** 
+  Users
+***********************************************/
+
+.user {
+
+}
+
+.user_photo {
+  width: 80px;
+  height: 80px;
+}
+
+.user_info {
+  margin: 0 20px 0 80px + $indent_sm;
+}
+
+.user_name {
+  @include head-block;
+
+  a {
+    display: block;
+  }
+}
+
+.user-bio {
+  
+}

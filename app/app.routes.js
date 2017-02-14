@@ -13,8 +13,8 @@ angular.module('MealRobot').config(function($routeProvider, $qProvider) {
     })
 
     .when('/sign-up', {
-      templateUrl: 'app/components/users/create.html',
-      controller: 'UserCreateController'
+      templateUrl: 'app/components/users/edit.html',
+      controller: 'UserEditController'
     })
 
     .when('/users/:id', {

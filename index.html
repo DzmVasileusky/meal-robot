@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Meal Robot - index</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div ng-view></div>
+  <div class="content" ng-view></div>
 </body>
 
 <!-- LIBS
@@ -14,21 +16,28 @@
 <script src="assets/libs/angular.js"></script>
 <script src="assets/libs/angular-resource.js"></script>
 <script src="assets/libs/angular-route.js"></script>
+<script src="assets/libs/angular-messages.js"></script>
 
 <!-- App
 *********************************************** -->
 <script src="app/app.module.js"></script>
 <script src="app/app.routes.js"></script>
+<script src="app/shared/shared.module.js"></script>
+<script src="app/shared/modules/needValidation.js"></script>
 
 <!-- Directives
 *********************************************** -->
+<script src="app/shared/directives/bgImage.js"></script>
 
 <!-- Controllers
 *********************************************** -->
 <script src="app/components/users/userListController.js"></script>
+<script src="app/components/users/userShowController.js"></script>
+<script src="app/components/users/userEditController.js"></script>
 
 <!-- Filters
 *********************************************** -->
+<script src="app/shared/filters/limitToEllipsis.js"></script>
 
 <!-- Services
 *********************************************** -->

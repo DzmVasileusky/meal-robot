@@ -1,0 +1,66 @@
+/*********************************************** 
+  UI
+***********************************************/
+
+/* Text styles
+***********************************************/
+@mixin head-page-1 {
+  font-size: 3.2rem;
+  margin-bottom: $indent_md;
+}
+
+@mixin head-page-2 {
+
+}
+
+@mixin head-block {
+  font-size: 1.8rem;
+}
+
+@mixin text-1 {
+
+}
+
+h1 {
+  @include head-page-1;
+}
+
+/* Blocks
+***********************************************/
+.block {
+  margin-bottom: $indent_md;
+  @include clearfix;
+}
+
+.block_photo {
+  display: block;
+  background-color: $color_pale;
+  background-size: cover;
+  float: left;
+}
+
+a {
+  color: $color_brand;
+
+  &:hover,
+  &:focus {
+    color: ns_hover($color_brand);
+  }
+
+  &:visited {
+    color: lighten($color_brand, 20%);
+  }
+}
+
+a.text {
+  color: $color_text;
+
+  &:hover,
+  &:focus {
+    color: ns_hover($color_text);
+  }
+
+  &:visited {
+    color: lighten($color_text, 20%);
+  }
+}
