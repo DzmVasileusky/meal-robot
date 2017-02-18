@@ -1,21 +1,22 @@
 angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$location', '$routeParams', function(User, $scope, $location, $routeParams) {
   $scope.isSubmitting = false;
+  $scope.user = {};
 
   if ($routeParams.id) {
     $scope.title = 'Edit';
-    $scope.user = User.get({id: $routeParams.id}, function() {
+    $scope.user = User.one($routeParams.id).then(function(data) {
+      $scope.user = data;
       $scope.title += ' ' + $scope.user.name + ' ' + $scope.user.surname || $scope.user.username;
     });
   } else {
     $scope.title = 'Registration';
-    $scope.user = new User();
   }
 
   $scope.save = function(user) {
     $scope.isSubmitting = true;
-    user.$save().finally(function() {
+    User.save(user).then(function(data) {
       $scope.isSubmitting = false;
-      $location.path('users/' + user.id);
+      $location.path('users/' + data.id);
     });
   };
 }]);

@@ -72,6 +72,10 @@ a.text {
   @extend .text-input.error;
 }
 
+.error-msg {
+  color: map-get($color_additional, 'error');
+}
+
 
 
 

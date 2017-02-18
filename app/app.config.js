@@ -1,4 +1,4 @@
-angular.module('MealRobot').config(['$routeProvider', '$qProvider', function($routeProvider, $qProvider) {
+angular.module('MealRobot').config(['$routeProvider', '$qProvider', 'RestangularProvider', function($routeProvider, $qProvider, RestangularProvider) {
 
   $qProvider.errorOnUnhandledRejections(false);
   
@@ -27,7 +27,14 @@ angular.module('MealRobot').config(['$routeProvider', '$qProvider', function($ro
       controller: 'UserEditController'
     })
 
+    .when('/login', {
+      templateUrl: 'app/components/auth/login.html',
+      controller: 'AuthLoginController'
+    })
+
     .otherwise({
       redirectTo: '/'
     });
+
+  RestangularProvider.setBaseUrl('http://localhost:8001/');
 }]);

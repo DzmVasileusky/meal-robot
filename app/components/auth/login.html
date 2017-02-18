@@ -1,0 +1,20 @@
+<h1>Login</h1>
+<form name="loginForm" ng-submit="loginForm.$valid && login(credentials)" novalidate ng-model-options="{ debounce: 500 }">
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input name="email" type="email" class="text-input" placeholder="Your email" required ng-model="credentials.email">
+      <div class="error-msg" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input name="password" type="password" class="text-input" placeholder="Your password" required ng-model="credentials.password">
+      <div class="error-msg" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted">
+        <div ng-messages-include="app/shared/views/need-validation.html"></div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <input type="submit" class="button" value="Login" ng-disabled="isSubmitting">
+    </div>
+</form>
