@@ -1,4 +1,4 @@
-angular.module('MealRobot').config(function($routeProvider, $qProvider) {
+angular.module('MealRobot').config(['$routeProvider', '$qProvider', function($routeProvider, $qProvider) {
 
   $qProvider.errorOnUnhandledRejections(false);
   
@@ -25,5 +25,9 @@ angular.module('MealRobot').config(function($routeProvider, $qProvider) {
     .when('/users/:id/edit', {
       templateUrl: 'app/components/users/edit.html',
       controller: 'UserEditController'
+    })
+
+    .otherwise({
+      redirectTo: '/'
     });
-});
+}]);

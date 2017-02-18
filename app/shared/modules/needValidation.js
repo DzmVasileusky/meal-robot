@@ -12,8 +12,6 @@ angular.module('NeedValidation').directive('password', function(){
           return true;
         }
 
-        console.log((/(?=^.{8,}$)(?![.\n])((?=.*\W)|(?=.*\d))(?=.*[A-Z])(?=.*[a-z]).*$/).test(viewValue));
-
         return (/(?=^.{8,}$)(?![.\n])((?=.*\W)|(?=.*\d))(?=.*[A-Z])(?=.*[a-z]).*$/).test(viewValue);
       };
     }

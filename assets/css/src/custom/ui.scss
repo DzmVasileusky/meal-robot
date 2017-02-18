@@ -64,3 +64,17 @@ a.text {
     color: lighten($color_text, 20%);
   }
 }
+
+/* Forms
+***********************************************/
+.ng-submitted .text-input.ng-invalid,
+.text-input.ng-invalid.ng-touched {
+  @extend .text-input.error;
+}
+
+
+
+
+
+
+

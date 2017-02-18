@@ -2780,12 +2780,14 @@ select.text-input::-ms-expand {
   box-shadow: inset 0 0 3px #3DCC80;
 }
 
-.text-input.error,
+.text-input.error, .ng-submitted .text-input.ng-invalid,
+.text-input.ng-invalid.ng-touched,
 .error .text-input {
   border-color: #E21F1E;
 }
 
-.text-input.error:focus,
+.text-input.error:focus, .ng-submitted .text-input.ng-invalid:focus,
+.text-input.ng-invalid.ng-touched:focus,
 .error .text-input:focus {
   -webkit-box-shadow: inset 0 0 3px #E21F1E;
   box-shadow: inset 0 0 3px #E21F1E;
@@ -3641,6 +3643,8 @@ a.text:visited {
   color: #86634c;
 }
 
+/* Forms
+***********************************************/
 /*********************************************** 
   Users
 ***********************************************/
