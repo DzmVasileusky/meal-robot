@@ -1,7 +1,8 @@
 <h1>{{user.name}} <strong>{{user.surname || user.username}}</strong></h1>
 <div class="block user">
-  <a ng-href="/users/{{user.id}}" class="block_photo user_photo" bg-image="{{user.photo || '/assets/img/nophoto.svg'}}"></a>
+  <div class="block_photo user_photo" bg-image="{{user.photo || '/assets/img/nophoto.svg'}}"></div>
   <div class="user_info">
     <div class="user-bio">{{user.bio}}</div>
+    <a ng-if="currentUser && currentUser.id == user.id" ui-sref="users.edit({ id: user.id })" class="button">Edit</a>
   </div>
 </div>
