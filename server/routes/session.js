@@ -13,9 +13,9 @@ module.exports = function(app){
     }, 1000);
   });
 
-  app.delete('/sessions/:token', function(req, res) {
+  app.delete('/sessions', function(req, res) {
     setTimeout(function(){
-      res.json(User.deleteToken(req.body));
+      res.json(User.deleteToken(req.params.token));
     }, 1000);
   });
 };

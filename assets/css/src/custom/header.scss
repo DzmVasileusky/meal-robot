@@ -4,6 +4,7 @@
 .header {
   height: 72px;
   background: $color_text;
+  color: $color_pale;
 }
 
 .header_logo {
@@ -19,25 +20,37 @@
 }
 
 .header_user_profile {
-
+  position: relative;
+  padding-left: 50px;
 }
 
 .header_user_img {
-
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
 }
 
 .header_user_name {
-
+  line-height: 72px;
 }
 
-.header_user_login {
+.header_user_link {
   line-height: 72px;
 }
 
 /* Nav
 ***********************************************/
 .header_nav {
-  margin: 0 120px 0 160px;
+  margin: 0 120px 0 200px;
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
 
   a {
     line-height: 72px;

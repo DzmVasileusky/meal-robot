@@ -8,7 +8,7 @@ angular.module('MealRobot').factory('AuthService', ['Restangular', '$localStorag
       if (data.token) {
         $localStorage.accessToken = data.token;
         that.user = data.user;
-        $rootScope.$broadcast('auth:loged');
+        $rootScope.$broadcast('auth:change');
       }
       
       return data;
@@ -18,13 +18,15 @@ angular.module('MealRobot').factory('AuthService', ['Restangular', '$localStorag
   that.logout = function() {
     var token = $localStorage.accessToken;
     delete $localStorage.accessToken;
+    that.user = false;
+    $rootScope.$broadcast('auth:change');
     return Restangular.all('sessions').remove({ token: token });
   };
 
   that.getUser = function(token) {
     return Restangular.all('sessions').get(token).then(function(data) {
       that.user = data;
-      $rootScope.$broadcast('auth:loged');
+      $rootScope.$broadcast('auth:change');
       return data;
     });
   };

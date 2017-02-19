@@ -3690,6 +3690,7 @@ a.text:visited {
 .header {
   height: 72px;
   background: #453327;
+  color: #F5EEE4;
 }
 
 .header_logo {
@@ -3704,14 +3705,38 @@ a.text:visited {
   float: right;
 }
 
-.header_user_login {
+.header_user_profile {
+  position: relative;
+  padding-left: 50px;
+}
+
+.header_user_img {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.header_user_name {
+  line-height: 72px;
+}
+
+.header_user_link {
   line-height: 72px;
 }
 
 /* Nav
 ***********************************************/
 .header_nav {
-  margin: 0 120px 0 160px;
+  margin: 0 120px 0 200px;
+}
+
+.header_nav ul {
+  padding: 0;
+  list-style: none;
 }
 
 .header_nav a {

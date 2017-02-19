@@ -13,9 +13,11 @@
       <div class="header_user" ng-cloak>
         <div class="header_user_profile" ng-show="currentUser">
           <a ng-href="#!/users/{{currentUser.id}}" class="header_user_img" bg-image="{{ currentUser.photo || '/assets/img/nophoto.svg' }}"></a>
-          <a ng-href="#!/users/{{currentUser.id}}" class="header_user_name">{{ currentUser.username }}</a>
+          <a ng-href="#!/users/{{currentUser.id}}" class="header_user_name">{{ currentUser.username }}</a> / <a class="header_user_link" ng-click="logout()">Logout</a>
         </div>
-        <a href="#!/login" class="header_user_login" ng-hide="currentUser">Login</a>
+        <div class="header_user_auth" ng-hide="currentUser">
+         <a href="#!/login" class="header_user_link">Login</a> / <a href="#!/sign-up" class="header_user_link">Sign up</a>
+        </div>
       </div>
       <main-nav></main-nav>
     </div>

@@ -1,7 +1,10 @@
 angular.module('MealRobot').controller('AppController', ['$scope', '$localStorage', 'AuthService', function($scope, $localStorage, AuthService) {
 
+  // logout
+  $scope.logout = AuthService.logout;
+
   // set current user
-  $scope.$on('auth:loged', function() {
+  $scope.$on('auth:change', function() {
     $scope.currentUser = AuthService.user;
   });
 
