@@ -1,6 +1,6 @@
-angular.module('MealRobot').controller('UserShowController', ['User', '$scope', '$routeParams', function(User, $scope, $routeParams) {
+angular.module('MealRobot').controller('UserShowController', ['User', '$scope', '$stateParams', function(User, $scope, $stateParams) {
   $scope.user = {};
-  User.one($routeParams.id).then(function(data) {
+  User.one($stateParams.id).then(function(data) {
     $scope.user = data;
   });
 }]);

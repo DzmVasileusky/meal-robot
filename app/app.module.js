@@ -3,4 +3,4 @@
 *
 * Description
 */
-angular.module('MealRobot', ['ngRoute', 'restangular', 'ngStorage', 'Shared']);
+angular.module('MealRobot', ['restangular', 'ngStorage', 'Shared', 'ui.router']);

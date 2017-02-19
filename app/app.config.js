@@ -1,40 +1,47 @@
-angular.module('MealRobot').config(['$routeProvider', '$qProvider', 'RestangularProvider', function($routeProvider, $qProvider, RestangularProvider) {
+angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', 'RestangularProvider', function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, RestangularProvider) {
+  $urlMatcherFactoryProvider.strictMode(false);
 
-  $qProvider.errorOnUnhandledRejections(false);
-  
-  $routeProvider
-    .when('/', {
-      redirectTo: '/users'
+  $stateProvider
+    .state('users', {
+      url: '/users',
+      abstract: true,
+      template: '<ui-view>'
     })
 
-    .when('/users', {
+    .state('users.list', {
+      url: '/',
       templateUrl: 'app/components/users/list.html',
       controller: 'UserListController'
     })
 
-    .when('/sign-up', {
-      templateUrl: 'app/components/users/edit.html',
-      controller: 'UserEditController'
-    })
-
-    .when('/users/:id', {
+    .state('users.id', {
+      url: '/:id',
       templateUrl: 'app/components/users/show.html',
       controller: 'UserShowController'
     })
 
-    .when('/users/:id/edit', {
+    .state('users.edit', {
+      url: '/:id/edit',
+      templateUrl: 'app/components/users/edit.html',
+      controller: 'UserEditController'
+    })
+  
+    .state('signup', {
+      url: '/sign-up',
       templateUrl: 'app/components/users/edit.html',
       controller: 'UserEditController'
     })
 
-    .when('/login', {
+    .state('login', {
+      url: '/login',
       templateUrl: 'app/components/auth/login.html',
       controller: 'AuthLoginController'
-    })
-
-    .otherwise({
-      redirectTo: '/'
     });
+
+  $urlRouterProvider
+    .when('/', '/users/')
+
+    .otherwise('/users/');
 
   RestangularProvider.setBaseUrl('http://localhost:8001/');
 }]);

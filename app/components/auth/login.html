@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<form name="loginForm" ng-submit="loginForm.$valid && login(credentials)" novalidate ng-model-options="{ debounce: 500 }">
+<form name="loginForm" ng-submit="loginForm.$valid && login(credentials)" novalidate>
     <div class="form-group">
       <label for="email" class="form-label">Email</label>
       <input name="email" type="email" class="text-input" placeholder="Your email" required ng-model="credentials.email">

@@ -1,10 +1,10 @@
-angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$location', '$routeParams', 'AuthService', function(User, $scope, $location, $routeParams, AuthService) {
+angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$location', '$stateParams', 'AuthService', function(User, $scope, $location, $stateParams, AuthService) {
   $scope.isSubmitting = false;
   $scope.user = {};
 
-  if ($routeParams.id) {
+  if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.user = User.one($routeParams.id).then(function(data) {
+    $scope.user = User.one($stateParams.id).then(function(data) {
       $scope.user = data;
       $scope.title += ' ' + $scope.user.name + ' ' + $scope.user.surname || $scope.user.username;
     });
