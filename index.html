@@ -8,14 +8,19 @@
 </head>
 <body ng-controller="AppController">
   <header class="header">
-    <a href="/" class="logo">MEAL ROBOT</a>
-    <nav class="header_nav"></nav>
-    <div class="header_user">
-      <a href="#" class="header_user_img"></a>
-      {{ currentUser.name }}
+    <div class="content">
+      <a href="/" class="header_logo">MEAL ROBOT</a>
+      <div class="header_user" ng-cloak>
+        <div class="header_user_profile" ng-show="currentUser">
+          <a ng-href="#!/users/{{currentUser.id}}" class="header_user_img" bg-image="{{ currentUser.photo || '/assets/img/nophoto.svg' }}"></a>
+          <a ng-href="#!/users/{{currentUser.id}}" class="header_user_name">{{ currentUser.username }}</a>
+        </div>
+        <a href="#!/login" class="header_user_login" ng-hide="currentUser">Login</a>
+      </div>
+      <main-nav></main-nav>
     </div>
   </header>
-  <div class="content" ng-view></div>
+  <div class="main content" ng-view></div>
 </body>
 
 <!-- LIBS
@@ -39,9 +44,11 @@
 <!-- Directives
 *********************************************** -->
 <script src="app/shared/directives/bgImage.js"></script>
+<script src="app/components/nav/mainNav.js"></script>
 
 <!-- Controllers
 *********************************************** -->
+<script src="app/components/app/appController.js"></script>
 <script src="app/components/users/userListController.js"></script>
 <script src="app/components/users/userShowController.js"></script>
 <script src="app/components/users/userEditController.js"></script>

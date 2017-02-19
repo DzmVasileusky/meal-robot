@@ -1,0 +1,49 @@
+/*********************************************** 
+  Header
+***********************************************/
+.header {
+  height: 72px;
+  background: $color_text;
+}
+
+.header_logo {
+  float: left;
+  font-size: 20px;
+  line-height: 72px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header_user {
+  float: right;
+}
+
+.header_user_profile {
+
+}
+
+.header_user_img {
+
+}
+
+.header_user_name {
+
+}
+
+.header_user_login {
+  line-height: 72px;
+}
+
+/* Nav
+***********************************************/
+.header_nav {
+  margin: 0 120px 0 160px;
+
+  a {
+    line-height: 72px;
+  }
+
+  .current a {
+    color: $color_pale;
+  }
+}

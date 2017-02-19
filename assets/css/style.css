@@ -3590,6 +3590,17 @@ form > .form-group:first-child {
 /*********************************************** 
   UI
 ***********************************************/
+/* Common styles
+***********************************************/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.main {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
 /* Text styles
 ***********************************************/
 h1 {
@@ -3671,4 +3682,42 @@ a.text:visited {
 
 .user_name a {
   display: block;
+}
+
+/*********************************************** 
+  Header
+***********************************************/
+.header {
+  height: 72px;
+  background: #453327;
+}
+
+.header_logo {
+  float: left;
+  font-size: 20px;
+  line-height: 72px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header_user {
+  float: right;
+}
+
+.header_user_login {
+  line-height: 72px;
+}
+
+/* Nav
+***********************************************/
+.header_nav {
+  margin: 0 120px 0 160px;
+}
+
+.header_nav a {
+  line-height: 72px;
+}
+
+.header_nav .current a {
+  color: #F5EEE4;
 }
