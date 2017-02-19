@@ -23,12 +23,13 @@ angular.module('MealRobot').factory('AuthService', ['Restangular', '$localStorag
     return Restangular.all('sessions').remove({ token: token });
   };
 
-  that.getUser = function(token) {
-    return Restangular.all('sessions').get(token).then(function(data) {
-      that.user = data;
-      $rootScope.$broadcast('auth:change');
-      return data;
-    });
+  that.getUser = function() {
+    if ($localStorage.accessToken)
+      return Restangular.all('sessions').get($localStorage.accessToken).then(function(data) {
+        that.user = data;
+        $rootScope.$broadcast('auth:change');
+        return data;
+      });
   };
 
   return that;

@@ -9,7 +9,6 @@ angular.module('MealRobot').controller('AppController', ['$scope', '$localStorag
   });
 
   $scope.currentUser = false;
-  if ($localStorage.accessToken)
-    AuthService.getUser($localStorage.accessToken);
+  AuthService.getUser($localStorage.accessToken);
 
 }]);
