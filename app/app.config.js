@@ -9,7 +9,7 @@ angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$ur
     })
 
     .state('users.list', {
-      url: '/',
+      url: '',
       templateUrl: 'app/components/users/list.html',
       controller: 'UserListController'
     })
@@ -23,7 +23,12 @@ angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$ur
     .state('users.edit', {
       url: '/:id/edit',
       templateUrl: 'app/components/users/edit.html',
-      controller: 'UserEditController'
+      controller: 'UserEditController',
+      data: {
+        rule: function(user, id) {
+          return !(user.id && user.id === id);
+        }
+      }
     })
   
     .state('signup', {

@@ -1,4 +1,4 @@
-angular.module('MealRobot').controller('AppController', ['$scope', '$localStorage', 'AuthService', function($scope, $localStorage, AuthService) {
+angular.module('MealRobot').controller('AppController', ['$scope', '$rootScope', '$localStorage', 'AuthService', '$state', function($scope, $rootScope, $localStorage, AuthService, $state) {
 
   // logout
   $scope.logout = AuthService.logout;
@@ -10,5 +10,16 @@ angular.module('MealRobot').controller('AppController', ['$scope', '$localStorag
 
   $scope.currentUser = false;
   AuthService.getUser($localStorage.accessToken);
+
+  // state filter
+  $rootScope.$on('$stateChangeStart', function(e, to, toParams, from) {
+    if (!to.data || typeof to.data.rule !== 'function') return;
+
+    var result = to.data.rule($scope.currentUser, toParams.id);
+    if (result) {
+      e.preventDefault();
+      $state.go( from.abstract ? '/' : from );
+    }
+  });
 
 }]);
