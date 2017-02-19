@@ -14,6 +14,9 @@
         <div ng-messages-include="app/shared/views/need-validation.html"></div>
       </div>
     </div>
+    <div class="server-errors" ng-show="errors">
+      <div ng-repeat="error in errors">{{ error }}</div>
+    </div>
     <div class="form-footer">
       <input type="submit" class="button" value="Login" ng-disabled="isSubmitting">
     </div>
