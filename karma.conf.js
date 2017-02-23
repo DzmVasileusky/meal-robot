@@ -15,6 +15,25 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        // libs
+        'assets/libs/jquery.js',
+        'assets/libs/lodash.js',
+        'assets/libs/angular.js',
+        'assets/libs/angular-messages.js',
+        'assets/libs/restangular.js',
+        'assets/libs/angular-ui-router.js',
+        'assets/libs/ngStorage.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+
+        // app
+        'app/app.module.js',
+        'app/app.config.js',
+        'app/shared/*.js',
+        'app/shared/**/*.js',
+        'app/components/**/*.js'
+
+        // tests
+        //'app/components/**/*.spec.js'
     ],
 
 
@@ -32,7 +51,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['spec'],
 
 
     // web server port
