@@ -25,7 +25,6 @@ describe('UserListController', function() {
       spyOn(UserService, 'all').and.callFake(function() {
         deffered = $q.defer();
         promise = deffered.promise;
-        deffered.resolve(mockUsers);
         return promise;
       });
     });
@@ -46,11 +45,15 @@ describe('UserListController', function() {
     expect($scope.users.length).toBe(0);
   });
 
-  it('should fill user list', function() {
+  it('should fill user list', function(done) {
     expect(UserService.all).toHaveBeenCalled();
-    
-    setTimeout(function() {
+
+    promise.finally(function() {
       expect($scope.users.length > 0).toBeTruthy();
-    }, 1);
+      done();
+    });
+
+    deffered.resolve(mockUsers);
+    $scope.$apply();
   });
 });

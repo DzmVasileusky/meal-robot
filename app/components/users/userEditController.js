@@ -1,4 +1,4 @@
-angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$location', '$stateParams', 'AuthService', function(User, $scope, $location, $stateParams, AuthService) {
+angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$state', '$stateParams', 'AuthService', function(User, $scope, $state, $stateParams, AuthService) {
   $scope.isSubmitting = false;
   $scope.user = {};
 
@@ -17,13 +17,13 @@ angular.module('MealRobot').controller('UserEditController', ['User', '$scope', 
     User.save(user).then(function(data) {
       $scope.isSubmitting = false;
 
-      // autorize
+      // authorize
       if ($scope.currentUser) 
         AuthService.getUser();
       else 
         AuthService.loginByCredentials(data);
 
-      $location.path('users/' + data.id);
+      $state.go('users.id', { id: data.id });
     });
   };
 }]);
