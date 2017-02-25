@@ -1,4 +1,4 @@
-angular.module('MealRobot').controller('AuthLoginController', ['$scope', 'AuthService', function($scope, AuthService) {
+angular.module('MealRobot').controller('AuthLoginController', ['$scope', 'AuthService', '$state', function($scope, AuthService, $state) {
   $scope.credentials = {
     email: '',
     password: ''
@@ -10,6 +10,7 @@ angular.module('MealRobot').controller('AuthLoginController', ['$scope', 'AuthSe
         $scope.errors = data.errors;
       else {
         $scope.errors = false;
+        $state.go('users.id', { id: data.user.id });
       }
     });
   };
