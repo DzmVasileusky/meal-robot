@@ -91,7 +91,18 @@ a.text {
   color: map-get($color_additional, 'error');
 }
 
+.default-form {
 
+  .image-loader_preview {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
 
 
 

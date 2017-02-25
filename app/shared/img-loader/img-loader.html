@@ -1,0 +1,5 @@
+<div class="image-loader">
+  <img class="image-loader_preview image-loader_upload" ng-if="source" ng-src="{{source}}" alt="User photo">
+  <a href="#" class="image-loader_button image-loader_upload button" ng-bind="source ? 'Change photo' : 'Upload photo'"></a>
+  <input name="{{::name}}" type="file" class="hidden" placeholder="Your image">
+</div>

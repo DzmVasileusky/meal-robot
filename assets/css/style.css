@@ -3664,6 +3664,16 @@ a.text:visited {
   color: #E21F1E;
 }
 
+.default-form .image-loader_preview {
+  max-width: 120px;
+  max-height: 120px;
+  display: block;
+}
+
+.default-form .hidden {
+  display: none;
+}
+
 /*********************************************** 
   Users
 ***********************************************/

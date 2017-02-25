@@ -1,6 +1,7 @@
 angular.module('MealRobot').controller('UserEditController', ['User', '$scope', '$state', '$stateParams', 'AuthService', function(User, $scope, $state, $stateParams, AuthService) {
   $scope.isSubmitting = false;
   $scope.user = {};
+  $scope.userphoto = false;
 
   if ($stateParams.id) {
     $scope.title = 'Edit';
@@ -12,9 +13,9 @@ angular.module('MealRobot').controller('UserEditController', ['User', '$scope', 
     $scope.title = 'Registration';
   }
 
-  $scope.save = function(user) {
+  $scope.save = function(user, photo) {
     $scope.isSubmitting = true;
-    User.save(user).then(function(data) {
+    User.save(user, photo).then(function(data) {
       $scope.isSubmitting = false;
 
       // authorize

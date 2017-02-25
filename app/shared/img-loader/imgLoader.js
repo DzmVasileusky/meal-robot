@@ -1,37 +1,40 @@
 /*********************************************** 
   Image loader with preview directive
 ***********************************************/
-angular.module('Shared').directive('dnd', ['$document', function($document) {
-  return function(scope, el) {
-    var startX = startY = x = y = 0;
-    console.log(el);
-    el.css({ 'position': 'absolute' });
+angular.module('Shared').directive('imageLoader', ['FileUploader', function(FileUploader) {
+  return {
+    restrict: 'E',
+    replace: true,
+    scope: {
+      source: '<',
+      name: '@inputName',
+      userphoto: '='
+    },
+    templateUrl: 'app/shared/img-loader/img-loader.html',
+    link: function(scope, el, attrs) {
+      var buttons = el.find('.image-loader_upload'),
+          input = el.find('[type=file]');
 
-    el.on('mousedown', function(event) {
-      event.preventDefault();
-      startX = event.pageX - x;
-      startY = event.pageY - y;
-      $document.on('mousemove', mousemove);
-      $document.on('mouseup', mouseup);
-    });
+      function setSrc(file) {
+        var reader = new FileReader();
 
-    function mousemove(event) {
-      x = event.pageX - startX;
-      y = event.pageY - startY;
+        reader.onload = function(e) {
+          scope.source = e.target.result;
+          scope.userphoto = file;
+          scope.$apply();
+        };
 
-      el.css({
-        left: x + 'px',
-        top: y + 'px'
+        reader.readAsDataURL(file);
+      };
+
+      buttons.on('click', function(e) {
+        e.preventDefault();
+        input.trigger('click');
+      })
+
+      input.on('change', function() {
+        setSrc(this.files && this.files[0]);
       });
-    };
-
-    function mouseup(event) {
-      $document.off('mousemove', mousemove);
-      $document.off('mouseup', mouseup);
     }
-
-    scope.$on('$destroy', function() {
-      el.off('mousedown', mousemove);
-    });
-  };
+  }
 }]);
