@@ -3,7 +3,8 @@ angular.module('MealRobot').controller('ProductListController', ['Product', 'Die
   $scope.diets = [];
   $scope.currentCategory = '';
   
-  Product.all().then(function(data) {
+  Product.page(1, 8).then(function(data) {
+    console.log(data);
     $scope.products = data;
   });
 

@@ -65,8 +65,16 @@ module.exports = {
       return product.id === id;
     });
   },
-  all: function() {
-    return buildProducts();
+  all: function(params) {
+    var selectedProducts = buildProducts(),
+        selected;
+
+    if (params.page) {
+      selected = params.page * params.perpage;
+      selectedProducts = selectedProducts.slice(selected - params.perpage, selected);
+    }
+
+    return selectedProducts;
   },
   update: function(product) {
     var updatedProduct;

@@ -3,7 +3,7 @@ var Product = require('../models/products')
 
 module.exports = function(app) {
   app.get('/products', function(req, res) {
-    res.json(Product.all());
+    res.json(Product.all(req.query));
   });
 
   app.post('/products', function(req, res) {
