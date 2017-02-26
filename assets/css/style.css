@@ -3654,6 +3654,25 @@ a.text:visited {
   color: #86634c;
 }
 
+/* Page header
+***********************************************/
+.page_header:before, .page_header:after {
+  content: '';
+  display: table;
+}
+
+.page_header:after {
+  clear: both;
+}
+
+.page_header h1 {
+  float: left;
+}
+
+.page_header .page_header_controls {
+  float: right;
+}
+
 /* Forms
 ***********************************************/
 .error-msg {
@@ -3672,6 +3691,72 @@ a.text:visited {
 
 .default-form .hidden {
   display: none;
+}
+
+/* Category tabs
+***********************************************/
+.category-tabs {
+  padding: 0;
+  margin: 0 0 24px;
+  list-style: none;
+  font-size: 0;
+}
+
+.category-tabs_item {
+  display: inline-block;
+}
+
+.category-tabs_item_link {
+  display: inline-block;
+  margin: 0;
+  background-image: none;
+  border-style: solid;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 11px 12.6px;
+  line-height: 14px;
+  height: 36px;
+  font-size: 14px;
+  border-width: 0;
+  border-radius: 0;
+  text-align: center;
+  color: #fff;
+  background-color: #5D8B00;
+}
+
+.category-tabs_item_link:focus {
+  outline: 0;
+}
+
+.category-tabs_item_link.disabled, .category-tabs_item_link.disabled:hover, .category-tabs_item_link.disabled:active, .category-tabs_item_link.disabled:focus, .category-tabs_item_link[disabled], .category-tabs_item_link[disabled]:hover, .category-tabs_item_link[disabled]:active, .category-tabs_item_link[disabled]:focus,
+fieldset[disabled] .category-tabs_item_link,
+fieldset[disabled] .category-tabs_item_link:hover,
+fieldset[disabled] .category-tabs_item_link:active,
+fieldset[disabled] .category-tabs_item_link:focus {
+  cursor: not-allowed;
+  background-color: #5D8B00;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+}
+
+.category-tabs_item_link:hover, .category-tabs_item_link:focus {
+  background-color: #7fbe00;
+  color: #fff;
+}
+
+.category-tabs_item_link:active, .category-tabs_item_link.active {
+  background-color: #3b5800;
+}
+
+.category-tabs_item--current .category-tabs_item_link {
+  background-color: #3b5800;
+  color: #fff;
 }
 
 /*********************************************** 
@@ -3751,6 +3836,14 @@ a.text:visited {
 .header_nav ul {
   padding: 0;
   list-style: none;
+}
+
+.header_nav li {
+  display: inline-block;
+}
+
+.header_nav li + li {
+  margin-left: 24px;
 }
 
 .header_nav a {

@@ -76,6 +76,20 @@ a.text {
   }
 }
 
+/* Page header
+***********************************************/
+.page_header {
+  @include clearfix();
+
+  h1 {
+    float: left;
+  }
+
+  .page_header_controls {
+    float: right;
+  }
+}
+
 /* Forms
 ***********************************************/
 .ng-submitted .text-input.ng-invalid,
@@ -104,6 +118,27 @@ a.text {
   }
 }
 
+/* Category tabs
+***********************************************/
+.category-tabs {
+  padding: 0;
+  margin: 0 0 $indent-sm;
+  list-style: none;
+  font-size: 0;
+}
+
+.category-tabs_item {
+  display: inline-block;
+}
+
+.category-tabs_item_link {
+  @include ns_button();
+
+  .category-tabs_item--current & {  
+    background-color: darken($color_brand, 10%);
+    color: #fff;
+  }
+}
 
 
 

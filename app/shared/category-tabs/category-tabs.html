@@ -1,0 +1,8 @@
+<ul class="category-tabs">
+  <li class="category-tabs_item" ng-class="{'category-tabs_item--current': isCurrent('')}">
+    <a class="category-tabs_item_link" href="" ng-click="setCurrent('')">All</a>
+  </li>
+  <li class="category-tabs_item" ng-repeat="category in categories" ng-class="{'category-tabs_item--current': isCurrent(category.name)}">
+    <a class="category-tabs_item_link" href="" ng-click="setCurrent(category.name)">{{category.name}}</a>
+  </li>
+</ul>

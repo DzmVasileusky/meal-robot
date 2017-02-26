@@ -1,0 +1,15 @@
+<div class="page_header">
+  <h1>Products</h1>
+  <div class="page_header_controls">
+    <div class="form-group">
+      <label for="header-search" class="form-label">Search</label>
+      <input id="header-search" type="text" class="text-input" ng-model="search.input">
+    </div>
+  </div>
+</div>
+<category-tabs categories="diets" current-category="currentCategory"></category-tabs>
+<div ng-repeat="product in filteredProducts = (products | filter: { diet: { name: currentCategory } } | filter: { name: search.input })" class="block product">
+  <h2 class="product_name"><a class="text" ui-sref="product.id({ id: product.id })">{{product.name}}</a></h2>
+  <div class="product_info">{{product.diet.name}}</div>
+</div>
+<div class="no-results" ng-hide="filteredProducts.length">No results</div>

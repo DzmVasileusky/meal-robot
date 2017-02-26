@@ -2,6 +2,18 @@ angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$ur
   $urlMatcherFactoryProvider.strictMode(false);
 
   $stateProvider
+    .state('signup', {
+      url: '/sign-up',
+      templateUrl: 'app/components/users/edit.html',
+      controller: 'UserEditController'
+    })
+
+    .state('login', {
+      url: '/login',
+      templateUrl: 'app/components/auth/login.html',
+      controller: 'AuthLoginController'
+    })
+
     .state('users', {
       url: '/users',
       abstract: true,
@@ -30,17 +42,17 @@ angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$ur
         }
       }
     })
-  
-    .state('signup', {
-      url: '/sign-up',
-      templateUrl: 'app/components/users/edit.html',
-      controller: 'UserEditController'
+
+    .state('products', {
+      url: '/products',
+      abstract: true,
+      template: '<ui-view>'
     })
 
-    .state('login', {
-      url: '/login',
-      templateUrl: 'app/components/auth/login.html',
-      controller: 'AuthLoginController'
+    .state('products.list', {
+      url: '',
+      templateUrl: 'app/components/products/list.html',
+      controller: 'ProductListController'
     });
 
   $urlRouterProvider

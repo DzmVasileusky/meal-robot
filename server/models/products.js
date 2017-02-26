@@ -53,7 +53,7 @@ var buildProducts = function() {
 
   for(var i=0, l=rawProducts.length; i < l; i++) {
     product = rawProducts[i];
-    product.diet = Category.get(product.dietId);
+    product.diet = Diet.get(product.dietId);
     buildProducts.push(product);
   }
   return buildProducts;
