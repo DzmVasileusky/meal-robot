@@ -15,10 +15,11 @@ angular.module('MealRobot').controller('AppController', ['$scope', '$rootScope',
   $rootScope.$on('$stateChangeStart', function(e, to, toParams, from) {
     if (!to.data || typeof to.data.rule !== 'function') return;
 
-    var result = to.data.rule($scope.currentUser, toParams.id);
+    var result = to.data.rule($scope.currentUser, toParams.id),
+        returnTo = from.abstract ? 'login' : from;
     if (result) {
       e.preventDefault();
-      $state.go( from.abstract ? '/' : from );
+      $state.go( returnTo );
     }
   });
 

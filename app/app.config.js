@@ -26,7 +26,6 @@ angular.module('MealRobot').config(['$stateProvider', '$urlRouterProvider', '$ur
       controller: 'UserEditController',
       data: {
         rule: function(user, id) {
-          return false;
           return !(user.id && user.id === id);
         }
       }
