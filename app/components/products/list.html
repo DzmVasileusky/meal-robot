@@ -8,8 +8,10 @@
   </div>
 </div>
 <category-tabs categories="diets" current-category="currentCategory"></category-tabs>
-<div ng-repeat="product in filteredProducts = (products | filter: { diet: { name: currentCategory } } | filter: { name: search.input })" class="block product">
-  <h2 class="product_name"><a class="text" ui-sref="product.id({ id: product.id })">{{product.name}}</a></h2>
-  <div class="product_info">{{product.diet.name}}</div>
-</div>
-<div class="no-results" ng-hide="filteredProducts.length">No results</div>
+<infinite-scroll on-reach-end="loadMore()">
+  <div ng-repeat="product in filteredProducts = (products | filter: { diet: { name: currentCategory } } | filter: { name: search.input })" class="block product">
+    <h2 class="product_name"><a class="text" ui-sref="product.id({ id: product.id })">{{product.name}}</a></h2>
+    <div class="product_info">{{product.diet.name}}</div>
+  </div>
+  <div class="no-results" ng-hide="filteredProducts.length">No results</div>
+</infinite-scroll>
